@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette (from company logo and profile) */
+  --color-gold: #e8a820;
+  --color-gold-deep: #c98a10;
+  /* Darker golds for text on light backgrounds (WCAG contrast):
+     gold-heading passes 3:1 for large text, gold-text passes 4.5:1 */
+  --color-gold-heading: #b07a00;
+  --color-gold-text: #8a6200;
+  --color-ink: #0d0d0d;
+  --color-mist: #f2f2f2;
+  --color-leaf: #7dc242;
+
+  /* Type */
+  --font-display: var(--font-anton), "Arial Narrow", sans-serif;
+  --font-sans: var(--font-manrope), system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    background: var(--color-gold);
+    color: var(--color-ink);
+  }
+}
+
+@layer utilities {
+  /* Oversized display headings */
+  .display-heading {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    line-height: 0.95;
+  }
+
+  /* Angular clipped-polygon shapes used as section accents */
+  .clip-slant {
+    clip-path: polygon(0 0, 100% 0, 100% 78%, 0 100%);
+  }
+
+  .clip-slant-reverse {
+    clip-path: polygon(0 22%, 100% 0, 100% 100%, 0 100%);
+  }
+
+  .clip-chevron {
+    clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
+  }
+}
