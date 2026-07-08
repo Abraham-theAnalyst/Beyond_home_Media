@@ -16,8 +16,9 @@ next-env.d.ts
 # debug
 npm-debug.log*
 
-# env files
+# env files (the example template carries no secrets and stays tracked)
 .env*
+!.env.example
 
 # vercel
 .vercel
